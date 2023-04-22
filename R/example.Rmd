@@ -1,0 +1,55 @@
+---
+title: "Example"
+author: "Jahnae Edwards"
+date: "2023-04-22"
+output: html_document
+---
+
+##Install package
+
+```{r setup}
+library(HomeValues)
+```
+
+## Install Package
+
+```{r cars}
+data_file <- "C:/Users/13212/OneDrive/Documents/College/USF/Spring 23/R Programming/Final/HomeValues/data/HousesAvg.csv"
+HousesAvg <- read.csv(data_file)
+
+CleanedHousesAvg <- cleandata(HousesAvg)
+head(CleanedHousesAvg)
+
+```
+
+## Example of using package functions
+
+```{r pressure, echo=TRUE}
+YearsAvg <- MonthsCombined(CleanedHousesAvg)
+head(YearsAvg)
+```
+
+
+```{r}
+Stateavg <- Avgbystate(YearsAvg)
+head(Stateavg)
+```
+
+```{r}
+CompareStatePlots(Stateavg, "FL", "GA", "TX")
+
+cityonly <- YearsAvg[, c(4, 6:29)]
+CompareCityPlots(cityonly, "Houston, TX", "Austin, TX", "San Antonio, TX")
+
+
+```
+
+```{r}
+
+predictStateavg(Stateavg, "TX", 2025)
+
+predictCityavg(Cityavg, "San Antonio, TX", 2025)
+
+
+```
+

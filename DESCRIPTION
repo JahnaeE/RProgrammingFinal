@@ -1,0 +1,23 @@
+Package: HomeValue
+Type: Package
+Title: Analyze the Average Home Value from 2000 - 2023
+Version: 0.1.0
+Author: Jahnae Edwards <Jahnae@usf.edu>
+Maintainer: Jahnae Edwards <Jahnae@usf.edu>
+Description: This package contains data from zillow.com about
+  the average prices of houses in the United States. There are functions
+  in this package that clean the data, allow the user to subset the
+  data for only citys or states, graphs multiple time series to
+  allow for easy comparison, and predicts the future value of home prices.
+  This package can help people decided where the most affordable place to 
+  live is.
+License: CCO
+Encoding: UTF-8
+LazyData: true
+Data: data/HousesAvg.csv
+imports:
+ dplyr,
+ ggplot2,
+ tidyr,
+ gridExtra
+RoxygenNote: 7.2.3
