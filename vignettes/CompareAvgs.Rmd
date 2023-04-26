@@ -1,0 +1,68 @@
+---
+title: "Average Home Value Analysis"
+author: "Jahnae Edwards"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+
+
+---
+
+```{r libraries}
+#load in libraries 
+library(dplyr)
+library(ggplot2)
+library(tidyr)
+library(gridExtra)
+library(HomeValues)
+```
+
+
+## Load in dataset
+
+
+```{r, fig.show='hold'}
+#load in data
+#data is from https://www.zillow.com/research/data/
+HousesAvg <- "C:/Users/13212/OneDrive/Documents/College/USF/Spring 23/R Programming/Final/HomeValues/data/HousesAvg.csv"
+HousesAvg <- read.csv(HousesAvg)
+
+```
+
+
+## Cleaning 
+
+
+```{r}
+#clean the dataset
+clean <- cleandata(HousesAvg)
+#Combine the months
+YearsAvg <- MonthsCombined(clean)
+#combine only states
+States <- Avgbystate(YearsAvg)
+
+```
+
+## Plots
+
+```{r}
+#plot averages to compare
+#states
+CompareStatePlots(States, "GA", "AL", "IL")
+#city
+cityonly <- YearsAvg[, c(4, 6:29)]
+CompareCityPlots(cityonly, "Chicago, IL", "Rockford, IL", "Bloomington, IL")
+
+```
+## Predict Future Values
+
+```{r}
+#make predictions
+predictStateavg(States, "IL", 2025)
+
+predictCityavg(cityonly, "Chicago, IL", 2025)
+
+```

@@ -1,0 +1,27 @@
+---
+title: "Houses Avg Overview"
+author: "Jahnae Edwards"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Houses Avg Overview}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+##OverView
+With the functions in this package, it is possible to more simply compare the average prices of households in specific states or cities as well as predict the future value of houses. 
+
+##Functions
+
+`cleandata` cleans the zillow dataset by fixing the headers and formatting the dates properly
+
+`MonthsCombined` the dataset has each months averages for every year since 2000, since this can be overwhelming, this functions finds the averages of each year to make for easier analysis
+
+`Avgbystate` combines the averages for each city in every state
+
+`CompareStatePlots` simplifies the visualization process by allowing the user to select 3 states of their choice to view the charts side by side to compare the averages
+
+`CompareCityPlot` same as `CompareStatePlots` except visualizing the city differences
+
+`predictCityavg` and `predictStateavg` predict the future values of whatever state or city the user would like to know 
